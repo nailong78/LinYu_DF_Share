@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>三角洲行动-内核辅助分享</title>
+    <style>
+        :root {
+            --ios-bg: #F2F2F7;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --accent-blue: #007AFF;
+            --warning-red: #FF3B30;
+            --text-main: #1C1C1E;
+            --text-sec: #8E8E93;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+
+        body {
+            background-color: var(--ios-bg);
+            background-image: radial-gradient(circle at 0% 0%, #FFFFFF 0%, #E5E5EA 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* 玻璃卡片主体 */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border-radius: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 420px;
+            padding: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 { font-size: 26px; color: var(--text-main); margin-bottom: 4px; text-align: center; letter-spacing: -0.5px; }
+        .version { font-size: 14px; color: var(--accent-blue); display: block; text-align: center; margin-bottom: 24px; font-weight: 500; opacity: 0.8; }
+
+        /* 内部测试声明 */
+        .disclaimer {
+            background: rgba(255, 59, 48, 0.06);
+            border: 1px solid rgba(255, 59, 48, 0.15);
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        .disclaimer h4 { color: var(--warning-red); font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; }
+        .disclaimer p { font-size: 12px; color: #666; line-height: 1.5; }
+
+        /* 更新日志 */
+        .log-container {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 28px;
+        }
+        .log-container h3 { font-size: 13px; color: var(--text-sec); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+        .log-list { list-style: none; }
+        .log-list li { font-size: 15px; color: var(--text-main); padding: 7px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); }
+        .log-list li:last-child { border-bottom: none; }
+
+        /* 下载按钮 */
+        .btn-download {
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 17px;
+            box-shadow: 0 12px 24px rgba(0, 122, 255, 0.25);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-bottom: 28px;
+        }
+        .btn-download:active { transform: scale(0.96); opacity: 0.9; }
+
+        /* 页脚 */
+        .credits { text-align: center; font-size: 13px; color: var(--text-sec); line-height: 2; }
+        .credits a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
+
+        /* 装饰背景 */
+        .orb {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #007AFF 0%, rgba(0,122,255,0) 70%);
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.15;
+            animation: float 10s infinite alternate;
+        }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+    </style>
+</head>
+<body>
+    <div class="orb" style="top: -50px; left: -50px;"></div>
+    <div class="orb" style="bottom: -50px; right: -50px; background: radial-gradient(circle, #5856D6 0%, rgba(88,86,214,0) 70%);"></div>
+
+    <div class="glass-card">
+        <h1>三角洲行动</h1>
+        <span class="version">LinYu_2.7.4.sh (Build 20260131)</span>
+
+        <div class="disclaimer">
+            <h4>⚠️ 内部测试声明</h4>
+            <p>本文件仅供开发者内部调试与技术研究使用，严禁用于任何非法外挂或破坏游戏平衡之用途。使用者需自行承担因不当使用引起的一切后果。</p>
+        </div>
+
+        <div class="log-container">
+            <h3>更新内容 (2026-01-31)</h3>
+            <ul class="log-list">
+                <li>完美适配最新S8赛季</li>
+                <li>无视闪框/加密</li>
+                <li>修复容器无效问题</li>
+                <li>修复骨骼延迟/闪烁问题</li>
+                <li>修复部分已知容器缺陷</li>
+                <li>新增识别赤枭小队</li>
+            </ul>
+        </div>
+
+        <a href="https://github.com/nailong78/App-Center/releases/download/LinYu_DF_2.7.4.sh/LinYu_DF_2.7.4.sh" class="btn-download">获取测试文件</a>
+
+        <div class="credits">
+            <p>开发者：<a href="https://t.me/LinYuHouse">林羽 (官方频道)</a></p>
+            <p>转载者：<a href="https://t.me/NL78991">奶龙 (TG@NL78991)</a></p>
+        </div>
+    </div>
+</body>
+</html>
